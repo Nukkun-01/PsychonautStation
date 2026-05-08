@@ -196,7 +196,11 @@
 		"ci-reviver",
 		"ci-antidrop",
 		"ci-antistun",
+<<<<<<< HEAD
 		"ci-ammo-counter",
+=======
+		"ci-tacvisor",
+>>>>>>> 7579ccc8c274f5d69b27bc3f912c1ae636a1a1fe
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_4_POINTS)
 	announce_channels = list(RADIO_CHANNEL_SCIENCE, RADIO_CHANNEL_MEDICAL)

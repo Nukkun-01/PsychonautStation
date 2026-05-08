@@ -162,6 +162,7 @@ ADMIN_VERB(secrets, R_ADMIN, "Secrets", "Abuse harder than you ever have before 
 			set_station_name(new_name)
 			log_admin("[key_name(holder)] reset the station name.")
 			message_admins(span_adminnotice("[key_name_admin(holder)] reset the station name."))
+<<<<<<< HEAD
 			priority_announce("[command_name()] istasyonun adını \"[new_name]\" olarak değiştirdi.")
 		if("night_shift_set")
 			var/val = tgui_alert(holder, "What do you want to set night shift to? This will override the automatic system until set to automatic again.", "Night Shift", list("On", "Off", "Automatic"))
@@ -178,6 +179,9 @@ ADMIN_VERB(secrets, R_ADMIN, "Secrets", "Abuse harder than you ever have before 
 				if("Off")
 					SSnightshift.can_fire = FALSE
 					SSnightshift.update_nightshift(active = FALSE, announce = TRUE, forced = TRUE)
+=======
+			priority_announce("[command_name()] has renamed the station to \"[new_name]\".")
+>>>>>>> 7579ccc8c274f5d69b27bc3f912c1ae636a1a1fe
 		if("moveferry")
 			SSblackbox.record_feedback("nested tally", "admin_secrets_fun_used", 1, list("Send CentCom Ferry"))
 			if(!SSshuttle.toggleShuttle("ferry","ferry_home","ferry_away"))
@@ -702,6 +706,39 @@ ADMIN_VERB(secrets, R_ADMIN, "Secrets", "Abuse harder than you ever have before 
 				S.count_down()
 				return
 			return
+
+		if("meteormode")
+			if(!is_funmin)
+				return
+			if(GLOB.meteor_mode)
+				QDEL_NULL(GLOB.meteor_mode)
+				message_admins("[key_name_admin(holder)] disabled meteor mode.")
+				return TRUE
+
+			GLOB.meteor_mode = new()
+			var/start_when = tgui_input_number(usr, "Meteors will start in (this many seconds):", "Meteor Mode: Start", (5 MINUTES) / 10, (24 HOURS) / 10, 0)
+			var/ramp_speed = tgui_input_number(usr, "Meteors will worsen every (this many seconds):", "Meteor Mode: Intensity", (5 MINUTES) / 10, (24 HOURS) / 10, (30 SECONDS) / 10)
+			if(!is_funmin) // deadminnied?
+				QDEL_NULL(GLOB.meteor_mode)
+				return TRUE
+			GLOB.meteor_mode.meteordelay = world.time + (start_when * 10)
+			GLOB.meteor_mode.rampupdelta = ramp_speed / 60
+			GLOB.meteor_mode.start_meteor()
+			message_admins("[key_name_admin(holder)] enabled meteor mode. \
+				Meteors will start [start_when ? "in [DisplayTimeText(start_when * 10)]" : "immediately"], and will worsen every [DisplayTimeText(ramp_speed * 10)].")
+			return TRUE
+
+		if("fix_gravity")
+			if(!is_funmin)
+				return
+			SSblackbox.record_feedback("nested tally", "admin_secrets_fun_used", 1, list("fix_gravity"))
+			message_admins("[key_name_admin(holder)] fixed the gravity generator.")
+
+			for(var/obj/machinery/gravity_generator/main/the_generator as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/gravity_generator/main))
+				if(!is_station_level(the_generator.z))
+					continue
+				the_generator.kickstart()
+				CHECK_TICK
 
 	if(holder)
 		log_admin("[key_name(holder)] used secret: [action].")

@@ -262,3 +262,8 @@
 	/// The DPI scale of the client. 1 is equivalent to 100% window scaling, 2 will be 200% window scaling
 	var/window_scaling
 
+<<<<<<< HEAD
+=======
+	/// OOC colour of the clients messages.
+	var/ooc_colour = null
+>>>>>>> 7579ccc8c274f5d69b27bc3f912c1ae636a1a1fe
