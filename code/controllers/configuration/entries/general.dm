@@ -841,10 +841,16 @@
 /datum/config_entry/flag/generate_assets_in_init
 	default = FALSE
 
+<<<<<<< HEAD
 /datum/config_entry/string/suspicious_log_discord_role_id
 
 /datum/config_entry/number/minimum_ascension_time
 	default = 0 // 1 minute
 	min_val = 0
 
+=======
+>>>>>>> 2b9286bc9dafebf446f28d013a8726e98ea04e49
 /datum/config_entry/flag/fishing
+
+/datum/config_entry/string/policy_json_path
+	default = "policy.json"

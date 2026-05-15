@@ -49,6 +49,7 @@
 #define span_cult_bold_italic(str) ("<span class='cult_bold_italic'>" + str + "</span>")
 #define span_cult_italic(str) ("<span class='cult_italic'>" + str + "</span>")
 #define span_cult_large(str) ("<span class='cult_large'>" + str + "</span>")
+#define span_cyan(str) ("<span class='cyan'>" + str + "</span>")
 #define span_danger(str) ("<span class='danger'>" + str + "</span>")
 #define span_deadsay(str) ("<span class='deadsay'>" + str + "</span>")
 #define span_deconversion_message(str) ("<span class='deconversion_message'>" + str + "</span>")
@@ -89,8 +90,12 @@
 #define span_medradio(str) ("<span class='medradio'>" + str + "</span>")
 #define span_memo(str) ("<span class='memo'>" + str + "</span>")
 #define span_memoedit(str) ("<span class='memoedit'>" + str + "</span>")
+<<<<<<< HEAD
 #define span_mentorsay(str) ("<span class='mentorsay'>" + str + "</span>")
 #define span_mentorsaytext(str) ("<span class='mentorsaytext'>" + str + "</span>")
+=======
+#define span_policy(str) ("<span class='policy'>" + str + "</span>")
+>>>>>>> 2b9286bc9dafebf446f28d013a8726e98ea04e49
 #define span_message(str) ("<span class='message'>" + str + "</span>")
 #define span_mind_control(str) ("<span class='mind_control'>" + str + "</span>")
 #define span_minorannounce(str) ("<span class='minorannounce'>" + str + "</span>")

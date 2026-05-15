@@ -262,3 +262,10 @@
 	/// The DPI scale of the client. 1 is equivalent to 100% window scaling, 2 will be 200% window scaling
 	var/window_scaling
 
+<<<<<<< HEAD
+=======
+	var/datum/tgui_window/stat_panel
+
+	/// OOC colour of the clients messages.
+	var/ooc_colour = null
+>>>>>>> 2b9286bc9dafebf446f28d013a8726e98ea04e49

@@ -1,5 +1,6 @@
 GLOBAL_LIST_INIT(crafting_category_food, list(
 	CAT_FOOD,
+<<<<<<< HEAD
 	CAT_BREAD,
 	CAT_BURGER,
 	CAT_CAKE,
@@ -20,6 +21,8 @@ GLOBAL_LIST_INIT(crafting_category_food, list(
 	CAT_SOUP,
 	CAT_SPAGHETTI,
 	CAT_ICE,
+=======
+>>>>>>> 2b9286bc9dafebf446f28d013a8726e98ea04e49
 	CAT_DRINK,
 ))
 
